@@ -50,9 +50,10 @@ void insertMap(HashMap * map, char * key, void * value) {
 }
 
 void enlarge(HashMap * map) {
-    enlarge_called = 1; //no borrar (testing purposes)
-
-
+  enlarge_called = 1; //no borrar (testing purposes)
+  if(map==NULL) return;
+  map->buckets = (Pair **)realloc(map->buckets,sizeof(Pair *)*map->capacity*2);
+  (map->capacity)++;
 }
 
 
