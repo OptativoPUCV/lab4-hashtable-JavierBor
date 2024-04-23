@@ -76,3 +76,18 @@ hashmap.c:76:89: error: ‘*map->buckets’ is a pointer; did you mean to use �
       |                                                                                         ->
 Compilation failed
 008efa3
+Tue 23 Apr 2024 01:59:10 PM UTC: 
+ hashmap.c | 7 +++----
+ 1 file changed, 3 insertions(+), 4 deletions(-)
+In file included from test.c:4:
+hashmap.c: In function ‘searchMap’:
+hashmap.c:76:28: error: ‘*map->buckets’ is a pointer; did you mean to use ‘->’?
+   76 |     if (strcmp(map->buckets->key,key)==0) return map->buckets[pos];
+      |                            ^~
+      |                            ->
+hashmap.c:80:1: error: control reaches end of non-void function [-Werror=return-type]
+   80 | }
+      | ^
+cc1: all warnings being treated as errors
+Compilation failed
+fe0c89c
