@@ -77,6 +77,7 @@ Pair * searchMap(HashMap * map,  char * key){
     else if (map->buckets[pos]->key==NULL) return NULL;
     pos = (pos+1)%map->capacity;
   }
+  return NULL;
 }
 
 Pair * firstMap(HashMap * map) {
