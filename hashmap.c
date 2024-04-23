@@ -60,6 +60,9 @@ void enlarge(HashMap * map) {
       insertMap(map,oldBuckets[i]->key,oldBuckets[i]->value);
     }
   }
+  for (long i = map->capacity; i < (map->capacity*2); i++){
+    map->buckets[i] = NULL;
+  }
   map->capacity *= 2;
   free(oldBuckets);
 }
