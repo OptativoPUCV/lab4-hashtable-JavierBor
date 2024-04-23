@@ -95,10 +95,8 @@ Pair * searchMap(HashMap * map,  char * key){
 }
 
 Pair * firstMap(HashMap * map) {
-  long pos = 0;
-  map->current = pos;
   for (int i = 0 ; i < map->size ; i++){
-    if (map->buckets[i] != NULL && map->buckets[pos]->key != NULL){
+    if (map->buckets[i] != NULL && map->buckets[i]->key != NULL){
       return map->buckets[i];
     }
     map->current = i;
