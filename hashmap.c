@@ -98,11 +98,10 @@ Pair * firstMap(HashMap * map) {
   long pos = 0;
   map->current = pos;
   for (int i = 0 ; i < map->size ; i++){
-    if (map->buckets[pos] != NULL && map->buckets[pos]->key != NULL){
-      return map->buckets[pos];
+    if (map->buckets[i] != NULL && map->buckets[pos]->key != NULL){
+      return map->buckets[i];
     }
-    pos++;
-    map->current = pos;
+    map->current = i;
   }
   return NULL;
 }
