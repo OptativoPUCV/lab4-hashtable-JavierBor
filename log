@@ -10,3 +10,19 @@ Tue 23 Apr 2024 01:39:37 PM UTC:
  tests:  5|4
 total_score: 30/70
 775396b
+Tue 23 Apr 2024 01:41:30 PM UTC: 
+ hashmap.c | 9 ++++++---
+ 1 file changed, 6 insertions(+), 3 deletions(-)
+In file included from test.c:4:
+hashmap.c: In function ‘searchMap’:
+hashmap.c:74:3: error: ‘pos’ undeclared (first use in this function); did you mean ‘pow’?
+   74 |   pos = hash(key,map->capacity);
+      |   ^~~
+      |   pow
+hashmap.c:74:3: note: each undeclared identifier is reported only once for each function it appears in
+hashmap.c:79:1: error: control reaches end of non-void function [-Werror=return-type]
+   79 | }
+      | ^
+cc1: all warnings being treated as errors
+Compilation failed
+7c1ce7e
