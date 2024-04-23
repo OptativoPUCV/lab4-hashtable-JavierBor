@@ -61,6 +61,7 @@ void enlarge(HashMap * map) {
     }
   }
   map->capacity *= 2;
+  free(oldBuckets);
 }
 
 
