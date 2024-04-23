@@ -52,12 +52,15 @@ void insertMap(HashMap * map, char * key, void * value) {
 void enlarge(HashMap * map) {
   enlarge_called = 1; //no borrar (testing purposes)
   if(map==NULL) return;
-  map->buckets = (Pair **)realloc(map->buckets,sizeof(Pair *)*map->capacity*2);
-  
-  for(int i=map->capacity + 1 ; i< (map->capacity*2) ;i++){
-    map->buckets[i]=NULL;
+  Pair ** oldBuckets = map->buckets;
+  map->buckets = (Pair **)malloc(sizeof(Pair *)*map->capacity*2);
+  map->size = 0;
+  for (long i = 0; i < map->capacity; i++){
+    if(oldBuckets[i]!=NULL && oldBuckets[i]->key!=NULL){
+      insertMap(map,oldBuckets[i]->key,oldBuckets[i]->value);
+    }
   }
-  (map->capacity)++;
+  map->capacity *= 2;
 }
 
 
