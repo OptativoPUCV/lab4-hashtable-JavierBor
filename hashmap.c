@@ -105,6 +105,11 @@ Pair * firstMap(HashMap * map) {
 }
 
 Pair * nextMap(HashMap * map) {
-
-    return NULL;
+  if (map == NULL) return NULL;
+  if (map->current == -1) return firstMap(map);
+  for (long i = map->current + 1 ; i < map->size ; i++){
+    if (map->buckets[i] != NULL && map->buckets[i]->key != NULL)
+      return map->buckets[i];
+  }
+  return NULL;
 }
