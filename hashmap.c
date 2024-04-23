@@ -80,12 +80,13 @@ Pair * searchMap(HashMap * map,  char * key){
   }
   
   else{
-    while(map->buckets[pos]!=NULL && map->buckets[pos]->key!=NULL){
+    while(1){
       pos = (pos+1)%map->capacity;
       if (strcmp(map->buckets[pos]->key,key)==0){
         map->current = pos;
         return map->buckets[pos];
       }
+      else if(map->buckets[pos]==NULL || map->buckets[pos]->key==NULL) return NULL;
     }
   }
   return map->buckets[pos];
